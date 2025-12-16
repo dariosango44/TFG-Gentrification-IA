@@ -91,7 +91,7 @@ try:
 
     # Texto explicativo de la predicción
     tendencia = "subida" if prediccion[-1] > y[-1] else "bajada"
-    st.info(f"📊 El algoritmo de Regresión Lineal estima una **{tendencia}** constante. Precio esperado en 2025: **{prediccion[1]:.2f} €/m²**.")
+    st.info(f"El algoritmo de Regresión Lineal estima una **{tendencia}** constante. Precio esperado en 2025: **{prediccion[1]:.2f} €/m²**.")
 
     # 7. TABLA DE DATOS
     with st.expander("Ver datos brutos"):
@@ -99,7 +99,7 @@ try:
 
     # 8. CHATBOT (Interfaz)
     st.markdown("---")
-    st.subheader("💬 Asistente de Vivienda (IA)")
+    st.subheader("Asistente de Vivienda (IA)")
 
     # Historial del chat
     if "messages" not in st.session_state:
@@ -116,14 +116,14 @@ try:
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        # Respuesta Dummy (Aquí conectaremos GPT pronto)
-        respuesta = f"🤖 He recibido tu pregunta: '{prompt}'. Mi cerebro aún se está conectando, pero pronto podré analizar los datos por ti."
+        # Respuesta Dummy (Aquí conectaremos una IA pronto)
+        respuesta = f"He recibido tu pregunta: '{prompt}'. Mi cerebro aún se está conectando, pero pronto podré analizar los datos por ti."
         
         st.session_state.messages.append({"role": "assistant", "content": respuesta})
         with st.chat_message("assistant"):
             st.markdown(respuesta)
 
 except FileNotFoundError:
-    st.error("❌ No encuentro el archivo 'datos_con_metricas.csv'. Ejecuta primero 'analisis_gentrificacion.py'.")
+    st.error("No encuentro el archivo 'datos_con_metricas.csv'. Ejecuta primero 'analisis_gentrificacion.py'.")
 except Exception as e:
-    st.error(f"❌ Error inesperado: {e}")
+    st.error(f"Error inesperado: {e}")
